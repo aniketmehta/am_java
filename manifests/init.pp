@@ -37,7 +37,7 @@
 #
 # Sample Usage:
 #
-class java(
+class am_java(
   $distribution          = 'jdk',
   $version               = 'present',
   $package               = undef,
@@ -87,14 +87,14 @@ class java(
     default    => '--jre'
   }
 
-  anchor { 'java::begin:': }
+  anchor { 'am_java::begin:': }
   ->
   package { 'java':
     ensure => $version,
     name   => $use_java_package_name,
   }
   ->
-  class { 'java::config': }
-  -> anchor { 'java::end': }
+  class { 'am_java::config': }
+  -> anchor { 'am_java::end': }
 
 }
